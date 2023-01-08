@@ -12,6 +12,13 @@ include('components\navbar.php');
     }
 </style>
 
+<?php
+include('connection.php');
+$about = "SELECT about from users WHERE id = '3'";
+$result = $conn->query($about);
+$row = $result->fetch_assoc();
+?>
+
 
 
 <body>
@@ -31,9 +38,7 @@ include('components\navbar.php');
                             data-bs-target="#aboutModal"></i>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quam
-                            sequi aliquid earum eligendi optio exercitationem quod. Perferendis nam esse iste ad quod,
-                            impedit temporibus earum, placeat laudantium vitae ipsum?</p>
+                        <p class="card-text"><?php echo $row['about'] ?></p>
                     </div>
                 </div>
             </div>
@@ -109,7 +114,9 @@ include('components\navbar.php');
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <form action="" method="post">
+                        <textarea class="form-control" name="" id="" cols="30" rows="10"><?php echo $row['about'] ?></textarea>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
