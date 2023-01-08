@@ -114,13 +114,15 @@ $row = $result->fetch_assoc();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="post">
-                        <textarea class="form-control" name="" id="" cols="30" rows="10"><?php echo $row['about'] ?></textarea>
+                    <form  id="aboutForm" action="process\fieldUpdate-process.php" method="post">
+                        <textarea class="form-control" name="aboutField" id="" cols="30" rows="5"><?php echo $row['about'] ?></textarea>
+
+                        <!-- <button type="submit" class="btn btn-success">Save changes</button> -->
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success">Save changes</button>
+                    <button type="submit" class="btn btn-success" form="aboutForm">Save changes</button>
                 </div>
             </div>
         </div>
