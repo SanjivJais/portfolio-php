@@ -11,6 +11,7 @@ include('components\navbar.php');
         margin-bottom: 6px;
     }
 </style>
+<!-- I'm not yet done making a dynamic id system -->
 
 <?php
 include('connection.php');
