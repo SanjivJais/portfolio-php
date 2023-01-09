@@ -27,6 +27,10 @@ include('connection.php');
 $user = "SELECT * from users WHERE id = '$user_id'";
 $result = $conn->query($user);
 $row = $result->fetch_assoc();
+// fetching skills of the user 
+$skills = "SELECT * from skills WHERE user_id = '$user_id'";
+$result1 = $conn->query($skills);
+// $row1 = $result1->fetch_assoc();
 ?>
 
 
@@ -70,10 +74,12 @@ $row = $result->fetch_assoc();
                             data-bs-target="#skillModal"></i>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">SEO</li>
-                        <li class="list-group-item">Content Writing</li>
-                        <li class="list-group-item">WordPress</li>
-                        <li class="list-group-item">Photoshop</li>
+                        <?php  
+                        while($row1 = $result1->fetch_assoc()){ ?>
+                            <li class="list-group-item">
+                            <?php echo $row1['skill_name'] ?>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
                 <br><br>
@@ -156,11 +162,13 @@ $row = $result->fetch_assoc();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <form action="process\fieldUpdate-process.php?id=<?php echo $row['id']?>&value=skill" method="post" id="skillUpdate">
+                        <input class="form-control" type="text" name="skillName">
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary" form="skillUpdate">Add</button>
                 </div>
             </div>
         </div>
