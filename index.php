@@ -29,11 +29,14 @@ $row = $result->fetch_assoc();
 <body>
     <div class="container">
         <div class="row justify-content-md-center">
-            <div class="col-2">
-                <img id="profilePic"
-                    src="IMG\Dummy profile picture.jpg"
-                    alt="">
-                <p style="font-weight: 600;">Sanjiv Kumar Jaiswal</p>
+            <div class="col-2 text-center">
+                <img id="profilePic" src="IMG\Dummy profile picture.jpg" alt="">
+                <div class="nameBox">
+                    <p id="nameDisplay" style="font-weight: 600;">
+                        <?php echo $row['full_name'] ?>
+                    </p><span><i class="fa-solid fa-pencil" style="float: right; cursor: pointer; font-size: 12px;"></i></span>
+                </div>
+
             </div>
             <div class="col-9">
                 <div class="card border-success">
