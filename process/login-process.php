@@ -11,9 +11,10 @@ if (mysqli_num_rows($result)> 0) {
     if ($pass == $user["pass"]) {
         // The login is successful
         // Set the session variables
-        $_SESSION["logged_in"] = true;
-        $_SESSION["user_id"] = $user["id"];
-        $_SESSION["email"] = $user["email"];
+        session_start();
+        $_SESSION['logged_in'] = true;
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['email'] = $user['email'];
 
         // Redirect to the home page
         header("Location: ..\index.php");

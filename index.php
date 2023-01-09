@@ -14,9 +14,13 @@ include('components\navbar.php');
 <!-- I'm not yet done making a dynamic id system -->
 
 <?php
+session_start();
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+}
 include('connection.php');
-$about = "SELECT about from users WHERE id = '3'";
-$result = $conn->query($about);
+$user = "SELECT * from users WHERE id = '$user_id'";
+$result = $conn->query($user);
 $row = $result->fetch_assoc();
 ?>
 
@@ -27,7 +31,7 @@ $row = $result->fetch_assoc();
         <div class="row justify-content-md-center">
             <div class="col-2">
                 <img id="profilePic"
-                    src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/no-profile-picture-icon.png"
+                    src="IMG\Dummy profile picture.jpg"
                     alt="">
                 <p style="font-weight: 600;">Sanjiv Kumar Jaiswal</p>
             </div>
@@ -39,7 +43,9 @@ $row = $result->fetch_assoc();
                             data-bs-target="#aboutModal"></i>
                     </div>
                     <div class="card-body">
-                        <p class="card-text"><?php echo $row['about'] ?></p>
+                        <p class="card-text">
+                            <?php echo $row['about'] ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -115,8 +121,10 @@ $row = $result->fetch_assoc();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form  id="aboutForm" action="process\fieldUpdate-process.php" method="post">
-                        <textarea class="form-control" name="aboutField" id="" cols="30" rows="5"><?php echo $row['about'] ?></textarea>
+                    <form id="aboutForm" action="process\fieldUpdate-process.php?id=<?php echo $row['id'] ?>"
+                        method="post">
+                        <textarea class="form-control" name="aboutField" id="" cols="30"
+                            rows="5"><?php echo $row['about'] ?></textarea>
 
                         <!-- <button type="submit" class="btn btn-success">Save changes</button> -->
                     </form>

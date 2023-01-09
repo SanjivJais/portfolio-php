@@ -35,7 +35,8 @@ include('components\header.php');
                 </div>
             </div>
         </form>
-        <p style="text-align: center;">Don't Have An Account? <span><a href="signup.php">Signup Here</a></span> OR, <span><a href="index.php">Return Home</a></span></p>
+        <p style="text-align: center;">Don't Have An Account? <span><a href="signup.php">Signup Here</a></span> OR,
+            <span><a href="index.php">Return Home</a></span></p>
 
     </div>
 
