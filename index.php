@@ -23,6 +23,9 @@ session_start();
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
 }
+else{
+    header("Location: login.php");
+}
 include('connection.php');
 $user = "SELECT * from users WHERE id = '$user_id'";
 $result = $conn->query($user);

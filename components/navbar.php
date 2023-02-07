@@ -4,9 +4,9 @@ include('header.php');
 ?>
 
 <style>
-nav{
-    margin-bottom: 20px;
-}
+    nav {
+        margin-bottom: 20px;
+    }
 </style>
 
 <body>
@@ -19,16 +19,14 @@ nav{
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <!-- <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li> -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li> -->
                     <li>
-                        <form class="container-fluid justify-content-start">
-                           <a href="login.php"><button class="btn btn-sm btn-outline-secondary" type="button">LOGIN</button></a> 
-                           <a href="signup.php"><button class="btn btn-sm btn-outline-secondary" type="button">SIGNUP</button></a>
+                        <form class="container-fluid justify-content-start" action="process\login-process.php?value=logOut">
+                            <a href="login.php"><button class="btn btn-sm btn-outline-secondary"
+                                    type="button">LOGIN</button></a>
+                            <a href="signup.php"><button class="btn btn-sm btn-outline-secondary"
+                                    type="button">SIGNUP</button></a>
+                            <!-- <button class="btn btn-sm btn-outline-secondary" style="float: right; margin-left: 5px;"
+                                type="submit" >LOG OUT</button></a> -->
                         </form>
                     </li>
                 </ul>

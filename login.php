@@ -5,7 +5,7 @@ include('components\header.php');
 
 <body>
     <div class="container">
-        <form action="process\login-process.php" method="post">
+        <form action="process\login-process.php?value=login" method="post">
             <div class="row justify-content-md-center">
                 <div class="col-6">
                     <br><br>
